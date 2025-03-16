@@ -1,6 +1,7 @@
 package com.nimbleways.springboilerplate.services.implementations;
 
 import com.nimbleways.springboilerplate.entities.Product;
+import com.nimbleways.springboilerplate.enums.ProductType;
 import com.nimbleways.springboilerplate.repositories.ProductRepository;
 import com.nimbleways.springboilerplate.utils.Annotations.UnitTest;
 
@@ -9,11 +10,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(SpringExtension.class)
+@ExtendWith(MockitoExtension.class)
 @UnitTest
 public class MyUnitTests {
 
@@ -27,7 +28,7 @@ public class MyUnitTests {
     @Test
     public void test() {
         // GIVEN
-        Product product =new Product(null, 15, 0, "NORMAL", "RJ45 Cable", null, null, null);
+        Product product =new Product(null, 15, 0, ProductType.NORMAL, "RJ45 Cable", null, null, null);
 
         Mockito.when(productRepository.save(product)).thenReturn(product);
 
